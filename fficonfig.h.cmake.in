@@ -1,0 +1,145 @@
+/* fficonfig.h.cmake.in - Generated from CMake */
+
+#ifndef LIBFFI_CONFIG_H
+#define LIBFFI_CONFIG_H
+
+/* Define to 1 if you have the <alloca.h> header file. */
+#cmakedefine HAVE_ALLOCA_H @HAVE_ALLOCA_H@
+
+/* Define to 1 if you have the <sys/memfd.h> header file. */
+#cmakedefine HAVE_SYS_MEMFD_H @HAVE_SYS_MEMFD_H@
+
+/* Define to 1 if you have the <sys/mman.h> header file. */
+#cmakedefine HAVE_SYS_MMAN_H @HAVE_SYS_MMAN_H@
+
+/* Define to 1 if you have the <string.h> header file. */
+#cmakedefine HAVE_STRING_H @HAVE_STRING_H@
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#cmakedefine HAVE_STDLIB_H @HAVE_STDLIB_H@
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#cmakedefine HAVE_UNISTD_H @HAVE_UNISTD_H@
+
+/* Define to 1 if you have the `memfd_create' function. */
+#cmakedefine HAVE_MEMFD_CREATE @HAVE_MEMFD_CREATE@
+
+/* Define to 1 if you have the `memcpy' function. */
+#cmakedefine HAVE_MEMCPY @HAVE_MEMCPY@
+
+/* Define to 1 if you have the `mmap' function. */
+#cmakedefine HAVE_MMAP @HAVE_MMAP@
+
+/* Define to 1 if you have the `mkostemp' function. */
+#cmakedefine HAVE_MKOSTEMP @HAVE_MKOSTEMP@
+
+/* Define to 1 if you have the `mkstemp' function. */
+#cmakedefine HAVE_MKSTEMP @HAVE_MKSTEMP@
+
+/* Define if mmap with MAP_ANON(YMOUS) works. */
+#cmakedefine HAVE_MMAP_ANON @HAVE_MMAP_ANON@
+
+/* Define if mmap of /dev/zero works. */
+#cmakedefine HAVE_MMAP_DEV_ZERO @HAVE_MMAP_DEV_ZERO@
+
+/* Define to 1 if you have the ANSI C header files. */
+#define STDC_HEADERS 1
+
+/* The size of `double', as computed by sizeof. */
+#define SIZEOF_DOUBLE @SIZEOF_DOUBLE@
+
+/* The size of `long double', as computed by sizeof. */
+#define SIZEOF_LONG_DOUBLE @SIZEOF_LONG_DOUBLE@
+
+/* The size of `size_t', as computed by sizeof. */
+#define SIZEOF_SIZE_T @SIZEOF_SIZE_T@
+
+/* The size of `void*', as computed by sizeof. */
+#define SIZEOF_VOID_P @SIZEOF_VOID_P@
+
+/* Define to 1 if you have the long double type and it is bigger than a double */
+#cmakedefine HAVE_LONG_DOUBLE @HAVE_LONG_DOUBLE@
+
+/* Define if you support more than one size of the long double type */
+#cmakedefine HAVE_LONG_DOUBLE_VARIANT @HAVE_LONG_DOUBLE_VARIANT@
+
+/* Define to 1 if your processor stores words with the most significant byte first */
+#cmakedefine WORDS_BIGENDIAN @WORDS_BIGENDIAN@
+
+/* Define if __attribute__((visibility("hidden"))) is supported. */
+#cmakedefine HAVE_HIDDEN_VISIBILITY_ATTRIBUTE @HAVE_HIDDEN_VISIBILITY_ATTRIBUTE@
+
+/* Define if the assembler supports .cfi_* directives. */
+#cmakedefine HAVE_AS_CFI_PSEUDO_OP @HAVE_AS_CFI_PSEUDO_OP@
+
+/* Define if your assembler supports PC relative relocs. */
+#cmakedefine HAVE_AS_X86_PCREL @HAVE_AS_X86_PCREL@
+
+/* Define for the architecture */
+#cmakedefine FFI_ARCH_X86_64
+#cmakedefine FFI_ARCH_X86
+#cmakedefine FFI_ARCH_AARCH64
+#cmakedefine FFI_ARCH_ARM
+
+/* Define for the system */
+#cmakedefine FFI_SYSTEM_DARWIN
+#cmakedefine FFI_SYSTEM_LINUX
+#cmakedefine FFI_SYSTEM_WINDOWS
+
+/* Define if using MSVC */
+#cmakedefine MSVC @MSVC@
+
+/* Version number of package */
+#define VERSION "@PROJECT_VERSION@"
+
+/* Define to `unsigned int' if <sys/types.h> does not define. */
+/* #undef size_t */
+
+/* FFI_HIDDEN definition for symbol visibility */
+#ifdef LIBFFI_ASM
+# ifdef __APPLE__
+#  define FFI_HIDDEN(name) .private_extern name
+# else
+#  define FFI_HIDDEN(name) .hidden name
+# endif
+#else
+# ifdef HAVE_HIDDEN_VISIBILITY_ATTRIBUTE
+#  define FFI_HIDDEN __attribute__ ((visibility ("hidden")))
+# else
+#  define FFI_HIDDEN
+# endif
+#endif
+
+/* Define to the flags needed for the .section .eh_frame directive. */
+#ifdef __APPLE__
+# define EH_FRAME_FLAGS "aw"
+#else
+# define EH_FRAME_FLAGS "a"
+#endif
+
+/* Define this if you want to enable pax emulated trampolines */
+#undef FFI_MMAP_EXEC_EMUTRAMP_PAX
+
+/* Cannot use PROT_EXEC on this target, so, we revert to alternative means */
+#cmakedefine FFI_MMAP_EXEC_WRIT @FFI_MMAP_EXEC_WRIT@
+
+/* Define this if you want statically defined trampolines */
+#cmakedefine FFI_EXEC_STATIC_TRAMP @FFI_EXEC_STATIC_TRAMP_ENABLED@
+
+/* Define if symbols are underscored */
+#ifdef __APPLE__
+# define SYMBOL_UNDERSCORE 1
+#else
+# define SYMBOL_UNDERSCORE 0
+#endif
+
+/* Define this to disable the raw FFI interface */
+/* #undef FFI_NO_RAW_API */
+
+/* Define this to disable FFI_GO_CLOSURES */
+/* #undef FFI_NO_GO_CLOSURES */
+
+/* Define this if you want to enable pax emulated trampolines */
+/* #undef FFI_MMAP_EXEC_EMUTRAMP_PAX */
+
+#endif /* LIBFFI_CONFIG_H */
